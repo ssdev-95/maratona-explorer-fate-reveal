@@ -1,13 +1,9 @@
 <template>
-
-<Content />
-<Toast />
-
+	<Content />
 </template>
 
 <script setup>
 import Content from './components/content.vue'
-import Toast from './components/toast.vue'
 </script>
 
 <style lang="scss">
