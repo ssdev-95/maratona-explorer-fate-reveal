@@ -1,7 +1,7 @@
 <template>
 
 <img
-	src="../crystal-ball.svg"
+	src="/favicon.svg"
 	alt="An crystal ball image."
 />
 <div id="titles">
@@ -82,7 +82,7 @@ let answer = ref("")
 		max-width: 80vw;
 		height: 2.75rem;
 
-		background: #a151e9;
+		background: #7a33d6;
 		border: 0;
 		color: #f0f2f5;
 	}

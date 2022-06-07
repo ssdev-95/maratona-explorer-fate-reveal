@@ -3,7 +3,7 @@
 <div id="toast" :class="isShown ? '' : 'hide'">
 	<div>
 		<img
-			src="../crystal-ball.svg"
+			src="/favicon.svg"
 			alt="A crystal ball image"
 		>
 	</div>
