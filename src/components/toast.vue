@@ -28,8 +28,8 @@ import { isShown } from '../composables/toast'
 	width: 8rem;
 	height: 2.5rem;
 	border-radius: 40px;
-	border: 2px solid #ea5825;
-	color: #ea5825;
+	border: 2px solid #eb5f34;
+	color: #eb5f34;
 
 	position: fixed;
 	bottom: 15vh;
@@ -78,7 +78,7 @@ import { isShown } from '../composables/toast'
 	}
 
 	&.hide {
-		bottom: calc(0px - 15vh + 2.7rem);
+		bottom: calc(0px - 15vh + 3rem);
 	}
 }
 </style>

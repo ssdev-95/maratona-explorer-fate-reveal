@@ -1,11 +1,11 @@
 <template>
 
 <img
-	src="/favicon.svg"
+	src="/pwa-512x512.png"
 	alt="An crystal ball image."
 />
 <div id="titles">
-	<h1>I shall reveal your{{"\n"}}Fate!</h1>
+	<h1>I shall reveal your{{"\n"}}<span>Fate!</span></h1>
 	<p>Click in the ASK button to get yout fate revealed.</p>
 </div>
 <form @submit="getAnswer" id="entry">
@@ -26,12 +26,20 @@
 
 <script setup>
 import { ref } from 'vue'
-import { api } from '../services/api'
+import { answers } from '../composables/answers.json'
 import { showToast } from '../composables/toast'
 
-const endpoint = '/random'
+let question = ref("")
+let answer = ref("")
 
-async function getAnswer(event) {
+function getRandomIndex() {
+	const min = 1
+	const max = answers.length
+
+	return Math.floor(Math.random() * (max - min)) + min
+}
+
+function getAnswer(event) {
 	event.preventDefault()
 
 	if(!question.value) {
@@ -39,11 +47,8 @@ async function getAnswer(event) {
 		return;
 	}
 
-	const { data } = await api.get(endpoint).catch(err => {
-		alert(err)
-	})
+	answer.value = answers[getRandomIndex()]
 
-	answer.value = data.content
 	document
 		.querySelector("#app input")
 		.value = ""
@@ -55,12 +60,14 @@ async function getAnswer(event) {
 
 	return;
 }
-
-let question = ref("")
-let answer = ref("")
 </script>
 
 <style scoped lang="scss">
+img {
+	height: 10rem;
+	width: auto;
+}
+
 #entry {
 	display: flex;
 	flex-direction: column;
@@ -75,12 +82,14 @@ let answer = ref("")
 		text-indent:1.25rem;
 		border-color: transparent;
 		outline: 1px solid #c1c1c1;
+		border-radius: 4px;
 	}
 
 	button {
 		width: 35rem;
 		max-width: 80vw;
 		height: 2.75rem;
+		border-radius: 4px;
 
 		background: #7a33d6;
 		border: 0;
@@ -94,7 +103,11 @@ let answer = ref("")
 
 	h1{
 		font-weight: 600;
-		color: #f0f2f5;
+		color: #eb5f34;
+
+		span {
+			color: #58c2e3;
+		}
 	}
 
 	p {
