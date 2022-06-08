@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { registerSW } from 'virtual:pwa-register'
 
+const updateInterval = 5000 // 24 * 60 * 60 *1000;
 const updateSW = registerSW({
   onNeedRefresh() {
 		console.log('refreshing..')
@@ -12,7 +13,7 @@ const updateSW = registerSW({
 	onRegistered(r) {
     r && setInterval(() => {
       r.update()
-    }, 5000)
+    }, updateInterval)
   }
 })
 

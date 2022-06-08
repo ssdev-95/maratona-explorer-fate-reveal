@@ -18,6 +18,7 @@ export default defineConfig({
       manifest: {
         name: 'Fate Reveal',
         short_name: 'FReveal',
+				orientation: 'portrait',
         description: 'Let your fate be revealed through questions.',
         theme_color: '#03000D',
         icons: [
@@ -38,10 +39,7 @@ export default defineConfig({
             purpose: 'any maskable',
           }
         ]
-      },
-			workbox: {
-				sourcemap: true
-			}
+      }
 		})
 	]
 })
